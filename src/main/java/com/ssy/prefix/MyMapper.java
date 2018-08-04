@@ -16,10 +16,14 @@ public class MyMapper extends Mapper<Object, Text, Text, IntWritable> {
     public void map(Object key, Text value, Context context)
             throws IOException, InterruptedException {
         appStr = value.toString().split(",")[1];
-        if( "91988061".equals(appStr) || "99817749".equals(appStr) ){
-            appKey.set( value.toString().split(",")[1] + (int)(10*Math.random()) );
-        } else{
-            appKey.set( value.toString().split(",")[1] );
+        if ( "91988061".equals( appStr ) ) {
+            appKey.set( appStr + (int)(MyPartitioner.WEILI_ANDROID_REDUCE_NUM*Math.random()) );
+        } else if ( "99817749".equals( appStr ) ) {
+            appKey.set( appStr + (int)(MyPartitioner.ZHWNL_ANDROID_REDUCE_NUM*Math.random()) );
+        } else if ( "91988062".equals( appStr ) ) {
+            appKey.set( appStr + (int)(MyPartitioner.WEILI_IOS_REDUCE_NUM*Math.random()) );
+        } else {
+            appKey.set( appStr + (int)(MyPartitioner.ZHWNL_IOS_REDUCE_NUM*Math.random()) );
         }
         context.write(appKey,one);
     }

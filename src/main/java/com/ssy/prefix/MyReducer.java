@@ -13,6 +13,7 @@ public class MyReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
                        Context context)
             throws IOException, InterruptedException {
         int sum = 0;
+        key.set( key.toString().substring(0,8) );
 
         for (IntWritable val :values){
             sum += val.get();

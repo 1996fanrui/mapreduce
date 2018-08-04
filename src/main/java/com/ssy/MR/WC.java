@@ -32,15 +32,7 @@ public class WC {
 //        job.setNumReduceTasks(1);
 
         Path input = new Path("/user/hive/warehouse/test.db/tmp_ods_hive_pv_1d");//输入路径
-        RemoteIterator<LocatedFileStatus> remoteIterator =
-                input.getFileSystem(conf).listFiles(input,false);
-        int inputCount = 0;
-        while ( remoteIterator.hasNext() ){
-            LocatedFileStatus locatedFileStatus = remoteIterator.next();
-            FileInputFormat.addInputPath( job, locatedFileStatus.getPath() );//为job添加输入路径
-            inputCount++;
-        }
-        System.out.println( "数据源总共" + inputCount + "个文件！！！" );
+        FileInputFormat.addInputPath( job, input );
         Path output = new Path("/tmp/wordcount");   //输出路径
         if( output.getFileSystem(conf).exists(output) ) {       //如果路径存在,删除路径
             output.getFileSystem(conf).delete(output,true);
