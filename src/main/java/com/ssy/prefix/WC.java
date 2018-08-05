@@ -5,6 +5,7 @@ import org.apache.hadoop.fs.*;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.MRJobConfig;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
@@ -18,10 +19,10 @@ public class WC {
         Configuration conf = new Configuration(true);//读取配置文件
         conf.set("mapred.jar", "E:\\code\\ssy\\mapreduce\\out\\artifacts\\MyWC\\MyWC.jar");
         conf.set("fs.defaultFS", "hdfs://nn1.hadoop.bigdata.dmp.com:8020");
-//        conf.set(FileInputFormat.SPLIT_MAXSIZE,"67108464");   //64M
-//        conf.set(FileInputFormat.SPLIT_MINSIZE,"268433856"); //256M
+//        conf.setLong(FileInputFormat.SPLIT_MAXSIZE,67108464);   //64M
+//        conf.setLong(FileInputFormat.SPLIT_MINSIZE,268433856); //256M
+//        conf.setInt(MRJobConfig.NUM_MAPS,400);
         System.setProperty("HADOOP_USER_NAME", "root");
-
         Job job = Job.getInstance(conf); //job  作业
         job.setJarByClass(WC.class);//参数为 当前类的 类名
         job.setJobName("prefix");//给当前Job 取个名字
