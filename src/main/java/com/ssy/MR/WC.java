@@ -33,7 +33,7 @@ public class WC {
 
         Path input = new Path("/user/hive/warehouse/test.db/tmp_ods_hive_pv_1d");//输入路径
         FileInputFormat.addInputPath( job, input );
-        Path output = new Path("/tmp/wordcount");   //输出路径
+        Path output = new Path("/tmp/MR/pv");   //输出路径
         if( output.getFileSystem(conf).exists(output) ) {       //如果路径存在,删除路径
             output.getFileSystem(conf).delete(output,true);
         }

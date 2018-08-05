@@ -8,18 +8,19 @@ import java.io.IOException;
 
 public class MyReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
     private IntWritable result = new IntWritable();
+    private Text newKey = new Text();
 
     public void reduce(Text key, Iterable<IntWritable> values,
                        Context context)
             throws IOException, InterruptedException {
         int sum = 0;
-        key.set( key.toString().substring(0,8) );
+        newKey.set( key.toString().substring(0,8) );
 
         for (IntWritable val :values){
             sum += val.get();
         }
         result.set(sum);
-        context.write(key, result);
+        context.write(newKey, result);
 
     }
 }
