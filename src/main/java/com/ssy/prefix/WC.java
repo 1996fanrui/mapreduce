@@ -1,7 +1,7 @@
 package com.ssy.prefix;
 
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.fs.*;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -29,21 +29,43 @@ public class WC {
 
         Path input = new Path("/user/hive/warehouse/test.db/tmp_ods_hive_pv_1d");//输入路径
         FileInputFormat.addInputPath( job, input );
+        FileSystem fileSystem = input.getFileSystem(conf);
         Path output = new Path( "/tmp/MR/prefix" );   //输出路径
-        if( output.getFileSystem(conf).exists(output) ) {       //如果路径存在,删除路径
-            output.getFileSystem(conf).delete(output,true);
+        if( fileSystem.exists(output) ) {       //如果路径存在,删除路径
+            fileSystem.delete(output,true);
         }
         FileOutputFormat.setOutputPath( job, output );//为job设置输出路径
 
         job.setMapperClass(MyMapper.class);    //设置map的类
         job.setMapOutputKeyClass(Text.class);    //map的key输出类型
         job.setMapOutputValueClass(IntWritable.class);//map的value输出类型
+
         job.setReducerClass(MyReducer.class);    //设置reduce的类
-//        job.setPartitionerClass(MyPartitioner.class);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+        job.setPartitionerClass(MyPartitioner.class);
         //将以上所有的代码 提交给集群,等待 完成
 
         job.waitForCompletion(true);
 
-        System.out.println("处理完成");
+
+        Job job1 = Job.getInstance(conf); //job  作业
+        job1.setJarByClass(WC.class);//参数为 当前类的 类名
+        job1.setJobName("aggregate");//给当前Job 取个名字
+        job1.setNumReduceTasks(1);
+        FileInputFormat.addInputPath( job1, output );
+        Path output2 = new Path( "/tmp/MR/pv" );   //输出路径
+        if( fileSystem.exists(output2) ) {       //如果路径存在,删除路径
+            fileSystem.delete(output2,true);
+        }
+        FileOutputFormat.setOutputPath( job1, output2 );//为job设置输出路径
+
+        job1.setMapperClass(AggregateMapper.class);    //设置map的类
+        job1.setMapOutputKeyClass(Text.class);    //map的key输出类型
+        job1.setMapOutputValueClass(IntWritable.class);//map的value输出类型
+        job1.setReducerClass(AggregateReducer.class);    //设置reduce的类
+
+        job1.waitForCompletion(true);
+
     }
 }

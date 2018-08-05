@@ -6,10 +6,10 @@ import org.apache.hadoop.mapreduce.Partitioner;
 
 public class MyPartitioner extends Partitioner<Text,IntWritable> {
 
-    public static final int WEILI_ANDROID_REDUCE_NUM = 9;
-    public static final int ZHWNL_ANDROID_REDUCE_NUM = 9;
+    public static final int WEILI_ANDROID_REDUCE_NUM = 25;
+    public static final int ZHWNL_ANDROID_REDUCE_NUM = 11;
     public static final int WEILI_IOS_REDUCE_NUM = 2;
-    public static final int ZHWNL_IOS_REDUCE_NUM = 2;
+    public static final int ZHWNL_IOS_REDUCE_NUM = 4;
     public static final int REDUCE_NUM = WEILI_ANDROID_REDUCE_NUM + ZHWNL_ANDROID_REDUCE_NUM
             + WEILI_IOS_REDUCE_NUM + ZHWNL_IOS_REDUCE_NUM ;
 
