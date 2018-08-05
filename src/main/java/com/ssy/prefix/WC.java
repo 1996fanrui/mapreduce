@@ -18,7 +18,7 @@ public class WC {
         Configuration conf = new Configuration(true);//读取配置文件
         conf.set("mapred.jar", "E:\\code\\ssy\\mapreduce\\out\\artifacts\\MyWC\\MyWC.jar");
         conf.set("fs.defaultFS", "hdfs://nn1.hadoop.bigdata.dmp.com:8020");
-//        conf.set(FileInputFormat.SPLIT_MINSIZE,"67108464");   //64M
+//        conf.set(FileInputFormat.SPLIT_MAXSIZE,"67108464");   //64M
 //        conf.set(FileInputFormat.SPLIT_MINSIZE,"268433856"); //256M
         System.setProperty("HADOOP_USER_NAME", "root");
 
@@ -43,7 +43,8 @@ public class WC {
         job.setReducerClass(MyReducer.class);    //设置reduce的类
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
-        job.setPartitionerClass(MyPartitioner.class);
+
+        job.setPartitionerClass(MyPartitioner.class);   //设置分区器
         //将以上所有的代码 提交给集群,等待 完成
 
         job.waitForCompletion(true);

@@ -1,9 +1,7 @@
 package com.ssy.MR;
 
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.LocatedFileStatus;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.fs.RemoteIterator;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -20,7 +18,7 @@ public class WC {
         Configuration conf = new Configuration(true);//读取配置文件
         conf.set("mapred.jar", "E:\\code\\ssy\\mapreduce\\out\\artifacts\\MyWC\\MyWC.jar");
         conf.set("fs.defaultFS", "hdfs://nn1.hadoop.bigdata.dmp.com:8020");
-//        conf.set(FileInputFormat.SPLIT_MINSIZE,"67108464");   //64M
+//        conf.set(FileInputFormat.SPLIT_MAXSIZE,"67108464");   //64M
 //        conf.set(FileInputFormat.SPLIT_MINSIZE,"268433856"); //256M
         System.setProperty("HADOOP_USER_NAME", "root");
 
