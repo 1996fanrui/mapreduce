@@ -12,27 +12,27 @@
   </property>
   <property>
     <name>yarn.resourcemanager.address</name>
-    <value>nn1.hadoop.bigdata.dmp.com:8032</value>
+    <value>nn1.hadoop.wnl.dmp.com:8032</value>
   </property>
   <property>
     <name>yarn.resourcemanager.admin.address</name>
-    <value>nn1.hadoop.bigdata.dmp.com:8033</value>
+    <value>nn1.hadoop.wnl.dmp.com:8033</value>
   </property>
   <property>
     <name>yarn.resourcemanager.scheduler.address</name>
-    <value>nn1.hadoop.bigdata.dmp.com:8030</value>
+    <value>nn1.hadoop.wnl.dmp.com:8030</value>
   </property>
   <property>
     <name>yarn.resourcemanager.resource-tracker.address</name>
-    <value>nn1.hadoop.bigdata.dmp.com:8031</value>
+    <value>nn1.hadoop.wnl.dmp.com:8031</value>
   </property>
   <property>
     <name>yarn.resourcemanager.webapp.address</name>
-    <value>nn1.hadoop.bigdata.dmp.com:8088</value>
+    <value>nn1.hadoop.wnl.dmp.com:8088</value>
   </property>
   <property>
     <name>yarn.resourcemanager.webapp.https.address</name>
-    <value>nn1.hadoop.bigdata.dmp.com:8090</value>
+    <value>nn1.hadoop.wnl.dmp.com:8090</value>
   </property>
   <property>
     <name>yarn.resourcemanager.client.thread-count</name>
@@ -56,7 +56,7 @@
   </property>
   <property>
     <name>yarn.scheduler.maximum-allocation-mb</name>
-    <value>49152</value>
+    <value>30720</value>
   </property>
   <property>
     <name>yarn.scheduler.minimum-allocation-vcores</name>
@@ -68,7 +68,7 @@
   </property>
   <property>
     <name>yarn.scheduler.maximum-allocation-vcores</name>
-    <value>16</value>
+    <value>24</value>
   </property>
   <property>
     <name>yarn.resourcemanager.amliveliness-monitor.interval-ms</name>

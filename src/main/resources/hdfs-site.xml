@@ -4,55 +4,55 @@
 <configuration>
   <property>
     <name>dfs.nameservices</name>
-    <value>nameservice</value>
+    <value>wnl-dmp</value>
   </property>
   <property>
-    <name>dfs.client.failover.proxy.provider.nameservice</name>
+    <name>dfs.client.failover.proxy.provider.wnl-dmp</name>
     <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
   </property>
   <property>
-    <name>dfs.ha.automatic-failover.enabled.nameservice</name>
+    <name>dfs.ha.automatic-failover.enabled.wnl-dmp</name>
     <value>true</value>
   </property>
   <property>
     <name>ha.zookeeper.quorum</name>
-    <value>node1.zk.bigdata.dmp.com:2181,node2.zk.bigdata.dmp.com:2181,node3.zk.bigdata.dmp.com:2181</value>
+    <value>node1.zk.wnl.dmp.com:2181,node2.zk.wnl.dmp.com:2181,node3.zk.wnl.dmp.com:2181</value>
   </property>
   <property>
-    <name>dfs.ha.namenodes.nameservice</name>
-    <value>namenode44,namenode46</value>
+    <name>dfs.ha.namenodes.wnl-dmp</name>
+    <value>namenode41,namenode57</value>
   </property>
   <property>
-    <name>dfs.namenode.rpc-address.nameservice.namenode44</name>
-    <value>nn1.hadoop.bigdata.dmp.com:8020</value>
+    <name>dfs.namenode.rpc-address.wnl-dmp.namenode41</name>
+    <value>nn1.hadoop.wnl.dmp.com:8020</value>
   </property>
   <property>
-    <name>dfs.namenode.servicerpc-address.nameservice.namenode44</name>
-    <value>nn1.hadoop.bigdata.dmp.com:8022</value>
+    <name>dfs.namenode.servicerpc-address.wnl-dmp.namenode41</name>
+    <value>nn1.hadoop.wnl.dmp.com:8022</value>
   </property>
   <property>
-    <name>dfs.namenode.http-address.nameservice.namenode44</name>
-    <value>nn1.hadoop.bigdata.dmp.com:50070</value>
+    <name>dfs.namenode.http-address.wnl-dmp.namenode41</name>
+    <value>nn1.hadoop.wnl.dmp.com:50070</value>
   </property>
   <property>
-    <name>dfs.namenode.https-address.nameservice.namenode44</name>
-    <value>nn1.hadoop.bigdata.dmp.com:50470</value>
+    <name>dfs.namenode.https-address.wnl-dmp.namenode41</name>
+    <value>nn1.hadoop.wnl.dmp.com:50470</value>
   </property>
   <property>
-    <name>dfs.namenode.rpc-address.nameservice.namenode46</name>
-    <value>nn2.hadoop.bigdata.dmp.com:8020</value>
+    <name>dfs.namenode.rpc-address.wnl-dmp.namenode57</name>
+    <value>nn2.hadoop.wnl.dmp.com:8020</value>
   </property>
   <property>
-    <name>dfs.namenode.servicerpc-address.nameservice.namenode46</name>
-    <value>nn2.hadoop.bigdata.dmp.com:8022</value>
+    <name>dfs.namenode.servicerpc-address.wnl-dmp.namenode57</name>
+    <value>nn2.hadoop.wnl.dmp.com:8022</value>
   </property>
   <property>
-    <name>dfs.namenode.http-address.nameservice.namenode46</name>
-    <value>nn2.hadoop.bigdata.dmp.com:50070</value>
+    <name>dfs.namenode.http-address.wnl-dmp.namenode57</name>
+    <value>nn2.hadoop.wnl.dmp.com:50070</value>
   </property>
   <property>
-    <name>dfs.namenode.https-address.nameservice.namenode46</name>
-    <value>nn2.hadoop.bigdata.dmp.com:50470</value>
+    <name>dfs.namenode.https-address.wnl-dmp.namenode57</name>
+    <value>nn2.hadoop.wnl.dmp.com:50470</value>
   </property>
   <property>
     <name>dfs.replication</name>
@@ -80,11 +80,11 @@
   </property>
   <property>
     <name>dfs.client.read.shortcircuit</name>
-    <value>true</value>
+    <value>false</value>
   </property>
   <property>
     <name>dfs.domain.socket.path</name>
-    <value>/data/dmp/hadoop/run/hdfs-sockets/dn</value>
+    <value>/var/run/hdfs-sockets/dn</value>
   </property>
   <property>
     <name>dfs.client.read.shortcircuit.skip.checksum</name>

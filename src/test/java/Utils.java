@@ -1,5 +1,6 @@
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.*;
+import org.apache.hadoop.mapreduce.lib.chain.ChainReducer;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -60,5 +61,9 @@ public class Utils {
         System.out.println( "count:" + count );
 
         inputStream.close();
+    }
+
+    public void test(){
+//        ChainReducer.addMapper();
     }
 }
