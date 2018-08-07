@@ -18,7 +18,6 @@ public class WC {
 
         Configuration conf = new Configuration(true);//读取配置文件
         conf.set("mapred.jar", "E:\\code\\ssy\\mapreduce\\out\\artifacts\\MyWC\\MyWC.jar");
-        conf.set("fs.defaultFS", "hdfs://nn1.hadoop.wnl.dmp.com:8020");
 //        conf.setLong(FileInputFormat.SPLIT_MAXSIZE,67108464);   //64M
 //        conf.setLong(FileInputFormat.SPLIT_MINSIZE,268433856); //256M
 //        conf.setInt(MRJobConfig.NUM_MAPS,400);

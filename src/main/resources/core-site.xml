@@ -4,7 +4,7 @@
 <configuration>
   <property>
     <name>fs.defaultFS</name>
-    <value>hdfs://wnl-dmp</value>
+    <value>hdfs://nn1.hadoop.wnl.dmp.com</value>
   </property>
   <property>
     <name>fs.trash.interval</name>
