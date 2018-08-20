@@ -5,6 +5,7 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.MRJobConfig;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
@@ -19,6 +20,10 @@ public class WC {
         conf.set("mapred.jar", "E:\\code\\ssy\\mapreduce\\out\\artifacts\\MyWC\\MyWC.jar");
 //        conf.setLong(FileInputFormat.SPLIT_MAXSIZE,67108464);   //64M
 //        conf.setLong(FileInputFormat.SPLIT_MINSIZE,268433856); //256M
+//        FileInputFormat.setMaxInputSplitSize(job, size);
+//        FileInputFormat.setMinInputSplitSize(job, size);
+//        conf.set(MRJobConfig.IO_SORT_MB,"100");
+//        conf.set(MRJobConfig.MAP_SORT_SPILL_PERCENT,"0.8");
         System.setProperty("HADOOP_USER_NAME", "root");
 
         Job  job = Job.getInstance(conf); //job  作业
